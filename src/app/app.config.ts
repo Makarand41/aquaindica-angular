@@ -1,48 +1,27 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { provideRouter, withHashLocation } from '@angular/router';
-
+import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-// import { provideHttpClient, withFetch, withInterceptors, HTTP_INTERCEPTORS } from '@angular/common/http';
-// import { AuthInterceptor } from './admin/guards/auth.interceptor';
-
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { AuthInterceptor } from './admin/guards/auth.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-
     provideHttpClient(
-      withInterceptors([ (req, next) => {
+      withInterceptors([(req, next) => {
         const token = localStorage.getItem('token');
-        if (token) {
-          req = req.clone({
-            setHeaders: {
-              Authorization: `Bearer ${token}`
-            }
-          });
+
+        let headers = req.headers.set('ngrok-skip-browser-warning', 'true');
+
+        if (token &&
+            !req.url.includes('/api/admin/login') &&
+            !req.url.includes('/api/admin/verify-otp')) {
+          headers = headers.set('Authorization', `Bearer ${token}`);
         }
+
+        req = req.clone({ headers });
         return next(req);
       }])
     )
   ]
 };
-
-// export const appConfig: ApplicationConfig = {
-//   // providers: [
-//   //   provideBrowserGlobalErrorListeners(),
-//   //   provideRouter(routes), 
-//   //   provideHttpClient(),
-//   //   provideClientHydration(withEventReplay()),
-//   //     provideHttpClient(withFetch()) 
-//   // ]
-
-//   providers: [
-//     provideBrowserGlobalErrorListeners(),
-//     provideRouter(routes, withHashLocation()),
-//     provideHttpClient(withFetch()),
-//     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
-//   ]
-// };
