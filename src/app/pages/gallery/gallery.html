@@ -1,0 +1,25 @@
+<div class="gallery-container">
+  <div class="grid">
+    <div class="card" *ngFor="let img of gallery" (click)="open(img)">
+     <!-- Image -->
+<img *ngIf="img.type === 'image'" [src]="img.fileSrc" />
+
+<!-- Video -->
+<video *ngIf="img.type === 'video'" controls>
+  <source [src]="img.fileSrc" />
+</video>
+      <p>{{ img.title }}</p>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" *ngIf="selected">
+    <span class="close" (click)="selected=null">×</span>
+   <img *ngIf="selected.type === 'image'" [src]="selected.fileSrc" />
+
+<video *ngIf="selected.type === 'video'" controls>
+  <source [src]="selected.fileSrc" />
+</video>
+    <h3>{{ selected.title }}</h3>
+  </div>
+</div>

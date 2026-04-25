@@ -1,0 +1,104 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Apply everywhere */
+body {
+  background: var(--bg-main);
+  color: var(--text-main);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+/* :root {
+  --bg-main: #ffffff;
+  --bg-section: #f4f8fb;
+  --card-bg: #ffffff;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --primary: #0b5ed7;
+  --shadow: rgba(0, 0, 0, 0.08);
+}
+
+body.dark {
+  --bg-main: #020617;
+  --bg-section: #0f172a;
+  --card-bg: #111827;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --primary: #38bdf8;
+  --shadow: rgba(0, 0, 0, 0.25);
+} */
+ :root {
+  --bg-main: #ffffff;
+  --bg-section: #f4f8fb;
+  --card-bg: #ffffff;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --primary: #0b5ed7;
+  --shadow: rgba(0, 0, 0, 0.08);
+}
+
+body.dark {
+  --bg-main: #020617;
+  --bg-section: #0f172a;
+  --card-bg: #111827;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --primary: #38bdf8;
+  --shadow: rgba(0, 0, 0, 0.25);
+}
+html, body {
+  height: 100%;
+  
+}
+app-root {
+  display: block;
+  min-height: 100vh;
+}
+/* Light mode (default) */
+.home-about {
+  background: linear-gradient(180deg, #f6fbff 0%, #ffffff 60%);
+  color: #4a5a6a;
+}
+
+.services-preview {
+  background: #f1f6f9;
+  color: #004c6d;
+}
+
+/* Dark mode */
+body.dark .home-about {
+  background: linear-gradient(180deg, #d5dbe2 0%, #1f2a3a 60%);
+  color: #d0d4dc;
+}
+
+body.dark .services-preview {
+  background: #1a1f2a;
+  color: #a8b0c0;
+}
+
+body.dark .why-us {
+  background: #111827;
+  color: #cbd5e1;
+}
+
+body.dark .about-container,
+body.dark .service-card,
+body.dark .why-card {
+  background: rgba(20, 25, 35, 0.8);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  color: #e2e8f0;
+}

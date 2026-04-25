@@ -1,0 +1,31 @@
+<div class="dashboard">
+  <h1 class="title">Admin Dashboard</h1>
+<button class="back-btn" (click)="back()">
+  ← Back
+</button>
+  <div class="cards">
+
+    <div class="card">
+      <h3>Manage Blogs</h3>
+      <button routerLink="/admin/blogs">Add / Edit Blogs</button>
+    </div>
+
+    <div class="card">
+      <h3>Manage Gallery</h3>
+      <button routerLink="/admin/gallery">Manage Gallery</button>
+    </div>
+
+    <div class="card">
+      <h3>View Contacts</h3>
+      <button routerLink="/admin/contacts">View Contacts</button>
+    </div>
+
+  </div>
+
+  <div class="card">
+  <h3>Manage Services</h3>
+  <button routerLink="/admin/services">Add / Edit Services</button>
+</div>
+
+  <button class="logout" (click)="logout()">Logout</button>
+</div>

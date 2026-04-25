@@ -1,0 +1,29 @@
+<header class="navbar">
+<div class="logo">
+    <h2 class="logo-main">AQUAINDICA</h2>
+    <h6 class="logo-sub">Techno Solutions Pvt. Ltd.</h6>
+  </div>
+  <!-- <nav [class.open]="isMenuOpen">
+    <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a routerLink="/about" routerLinkActive="active">About</a>
+    <a routerLink="/services" routerLinkActive="active">Services</a>
+    <a routerLink="/gallery" routerLinkActive="active">Gallery</a>
+    <a routerLink="/blogs" routerLinkActive="active">Blogs</a>
+    <a routerLink="/association" routerLinkActive="active">Association</a>
+    <a routerLink="/contact" routerLinkActive="active">Contact</a>
+  </nav> -->
+<nav [class.open]="isMenuOpen">
+  <a routerLink="/home" (click)="closeMenu()" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+  <a routerLink="/about" (click)="closeMenu()" routerLinkActive="active">About</a>
+  <a routerLink="/services" (click)="closeMenu()" routerLinkActive="active">Services</a>
+  <a routerLink="/gallery" (click)="closeMenu()" routerLinkActive="active">Gallery</a>
+  <a routerLink="/blogs" (click)="closeMenu()" routerLinkActive="active">Blogs</a>
+  <a routerLink="/association" (click)="closeMenu()" routerLinkActive="active">Association</a>
+  <a routerLink="/contact" (click)="closeMenu()" routerLinkActive="active">Contact</a>
+</nav>
+  <!-- Hamburger -->
+  <div class="hamburger" (click)="toggleMenu()">
+    ☰
+  </div>
+</header>
+

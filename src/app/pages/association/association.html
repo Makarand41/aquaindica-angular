@@ -1,0 +1,21 @@
+<section class="association-section">
+  <div class="container">
+    
+    <h2 class="section-title">Our Associations</h2>
+    <p class="section-subtitle">
+      We proudly collaborate with leading global and national technology partners.
+    </p>
+
+    <div class="association-grid">
+     <div class="association-card"
+     *ngFor="let partner of partners"
+     (click)="goToContact()">
+
+  {{ partner }}
+
+</div>
+
+    </div>   
+
+  </div>
+</section>

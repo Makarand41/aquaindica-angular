@@ -1,0 +1,23 @@
+<!-- Back to Top Button -->
+ <button class="theme-toggle" (click)="toggleTheme()">
+  {{ isDark ? '☀️' : '🌙' }}
+</button>
+
+
+
+@if (showButton) {
+<button
+  class="scroll-top"
+  (click)="scrollToTop()">
+  ↑
+</button>
+}
+
+<button class="back-to-top" (click)="scrollToTop()" [class.show]="showButton">
+  ↑ Top
+</button>
+
+<app-navbar> </app-navbar>
+<router-outlet></router-outlet>
+
+<app-footer> </app-footer>

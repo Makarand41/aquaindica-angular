@@ -1,0 +1,97 @@
+<div class="admin-container">
+
+  <h2>Service Management</h2>
+
+  <!-- ===================== -->
+  <!-- ADD SERVICE -->
+  <!-- ===================== -->
+  <div class="form">
+    <h3>Add Service</h3>
+
+    <input [(ngModel)]="service.title" placeholder="Service Title">
+
+    <textarea [(ngModel)]="service.description" placeholder="Description"></textarea>
+
+    <button (click)="addService()">Add Service</button>
+  </div>
+
+  <!-- ===================== -->
+  <!-- ADD TOPIC -->
+  <!-- ===================== -->
+  <div class="form">
+    <h3>Add Topic</h3>
+
+    <select [(ngModel)]="selectedServiceId" (change)="onServiceChange()">
+      <option value="" disabled>Select Service</option>
+      <option *ngFor="let s of services" [value]="s.id">
+        {{ s.title }}
+      </option>
+    </select>
+
+    <input [(ngModel)]="topic.title" placeholder="Topic Title">
+
+    <button (click)="addTopic()">Add Topic</button>
+  </div>
+
+  <!-- ===================== -->
+  <!-- ADD DETAIL -->
+  <!-- ===================== -->
+  <div class="form">
+    <h3>Add Detail</h3>
+
+    <select [(ngModel)]="selectedTopicId">
+      <option value="" disabled>Select Topic</option>
+      <option *ngFor="let t of allTopics" [value]="t.id">
+        {{ t.title }}
+      </option>
+    </select>
+
+    <textarea [(ngModel)]="detail.description" placeholder="Detail Description"></textarea>
+
+    <!-- FILE UPLOAD -->
+    <input type="file" (change)="onFileSelected($event)">
+
+    <button (click)="addDetail()">Add Detail</button>
+  </div>
+
+  <!-- ===================== -->
+  <!-- SHOW DATA (TREE STRUCTURE) -->
+  <!-- ===================== -->
+
+  <div *ngFor="let s of services" class="card">
+
+    <!-- SERVICE -->
+    <h3>
+      {{ s.title }}
+      <button (click)="deleteService(s.id)">Delete</button>
+    </h3>
+
+    <!-- TOPICS -->
+    <div *ngFor="let t of s.topics" class="topic-box">
+
+      <p>
+        {{ t.title }}
+        <button (click)="deleteTopic(t.id)">Delete</button>
+      </p>
+
+      <!-- DETAILS -->
+      <div *ngFor="let d of t.details" class="detail-box">
+
+        <span>{{ d.description }}</span>
+
+        <!-- IMAGE -->
+        <img 
+          *ngIf="d.id"
+          [src]="'http://localhost:8080/api/admin/detail/image/' + d.id"
+          alt="detail image"
+        />
+
+        <button (click)="deleteDetail(d.id)">Delete</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

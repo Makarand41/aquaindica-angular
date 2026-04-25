@@ -1,0 +1,13 @@
+<div class="blog-detail" *ngIf="blog">
+  <h1>{{ blog.title }}</h1>
+  <p class="author">By {{ blog.author }}</p>
+
+  <img
+    *ngIf="blog.coverImage"
+    [src]="'data:image/jpeg;base64,' + blog.coverImage"
+  />
+
+  <div class="content">
+    <p>{{ blog.content }}</p>
+  </div>
+</div>

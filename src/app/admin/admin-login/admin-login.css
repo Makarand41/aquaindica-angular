@@ -1,0 +1,32 @@
+.login-container {
+  width: 360px;
+  max-width: 95%;
+  margin: 80px auto;
+  padding: 35px 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+  border-radius: 12px;
+  text-align: center;
+  background-color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 { margin-bottom: 30px; font-size: 26px; color: #023e8a; font-weight: 600; }
+
+input {
+  width: 100%; padding: 14px 16px; margin: 10px 0; border: 1.5px solid #ccc; border-radius: 8px; font-size: 16px;
+}
+
+input:focus { border-color: #0077b6; box-shadow: 0 0 6px rgba(0,119,182,0.4); outline: none; }
+
+button {
+  width: 100%; padding: 14px; margin-top: 10px; background: #0077b6; color: #fff; font-weight: 600;
+  border: none; border-radius: 8px; cursor: pointer; transition: background 0.3s ease;
+}
+
+button:hover { background: #0096c7; }
+
+.info-text { font-size: 13px; color: #555; margin-top: 12px; }
+
+.error { color: #d00000; margin-top: 15px; font-size: 14px; font-weight: 500; }
+
+.resend { color: #0077b6; font-weight: 600; cursor: pointer; text-decoration: underline; }

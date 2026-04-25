@@ -1,0 +1,73 @@
+.admin-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 40px;
+}
+
+.form {
+  background: white;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+
+input, textarea, select {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.service-card::before {
+  content: "→";
+  font-size: 20px;
+  color: #0096c7;
+}
+
+.topics li {
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.topics li:hover {
+  background: #e6f4fa;
+}
+
+button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #dc2626;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.topic-box {
+  margin-left: 15px;
+  padding: 10px;
+  border-left: 3px solid #0096c7;
+}
+
+.detail-box {
+  margin-left: 25px;
+  font-size: 14px;
+  padding: 5px 0;
+}
+.detail-box img {
+  display: block;
+  margin-top: 10px;
+  max-width: 220px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}

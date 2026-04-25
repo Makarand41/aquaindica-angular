@@ -1,0 +1,117 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: #004c6d;
+}
+
+nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  position: relative;
+}
+nav {
+  transition: all 0.3s ease;
+}
+
+nav a.active {
+  color: #0077a3;
+}
+
+nav a.active::after {
+  content: '';
+  height: 2px;
+  width: 100%;
+  background: #0077a3;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+}
+
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: white;
+    display: none;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  nav a {
+    margin: 10px 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+.logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+/* Main Brand */
+.logo-main {
+  font-size: 22px;
+  font-weight: 700;
+  color: #004c6d;
+  margin: 0;
+}
+
+/* Sub text */
+.logo-sub {
+  font-size: 11px;
+  font-weight: 500;
+  color: #6b7280;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* 🔥 MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+
+  .logo-main {
+    font-size: 18px;
+  }
+
+  .logo-sub {
+    font-size: 9px;
+  }
+}
+.logo-main {
+  letter-spacing: 1px;
+}
+
+.logo-sub {
+  text-transform: uppercase;
+}
+
+

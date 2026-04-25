@@ -1,0 +1,99 @@
+<section class="services-page">
+
+  <h1>Our Services</h1>
+  <div class="divider"></div>
+
+  <div class="services-grid">
+    <div 
+      class="service-card"
+      *ngFor="let service of services"
+      (click)="openService(service)"
+    >
+      <h3>{{ service.title }}</h3>
+      <p class="short">
+        {{ service.description | slice:0:120 }}...
+      </p>
+    </div>
+  </div>
+
+</section>
+
+<!-- OVERLAY -->
+<div class="service-overlay" *ngIf="selectedService">
+
+  <div class="overlay-content">
+
+    <button class="close-btn" (click)="closeService()">✕</button>
+
+    <div class="overlay-text">
+
+      <!-- STEP 1 -->
+      <div *ngIf="!selectedTopic">
+        <h2>{{ selectedService.title }}</h2>
+        <p>{{ selectedService.description }}</p>
+
+        <ul class="topics">
+          <li *ngFor="let topic of selectedService.topics"
+              (click)="selectTopic(topic)">
+            {{ topic.title }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- STEP 2 -->
+      <div *ngIf="selectedTopic">
+
+        <button class="back-btn" (click)="selectedTopic = null">⬅ Back</button>
+        <h3>{{ selectedTopic.title }}</h3>
+
+        <div class="topic-detail modern-card" *ngFor="let d of selectedTopic.details">
+
+          <!-- TEXT -->
+          <!-- <div class="detail-text" *ngIf="d.description; else noDesc">
+            <p>{{ d.description }}</p>
+          </div> -->
+  <div class="detail-text" *ngIf="d.description; else noDesc">
+
+  <p>
+    {{ d.description | slice:0:120 }}
+    <span *ngIf="d.description?.length > 120">...</span>
+  </p>
+
+  <a 
+    class="read-more" 
+    routerLink="/contact"
+    (click)="$event.stopPropagation()"
+  >
+    Read More →
+  </a>
+
+</div>
+          <ng-template #noDesc>
+            <div class="detail-text empty">
+              <p>No description available</p>
+            </div>
+          </ng-template>
+
+          <!-- IMAGE -->
+          <div class="detail-images">
+            <img 
+              *ngIf="d.imageObject"
+              [src]="d.imageObject"
+              (click)="openImageModal(d.imageObject)"
+            />
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- IMAGE FULLSCREEN MODAL -->
+<div class="image-modal" *ngIf="selectedImage" (click)="closeImageModal()">
+  <img [src]="selectedImage" />
+</div>

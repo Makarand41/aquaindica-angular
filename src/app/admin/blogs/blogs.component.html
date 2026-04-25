@@ -1,0 +1,56 @@
+<div class="admin-blogs-container">
+  <h2>Add New Blog</h2>
+<button class="back-btn" (click)="back()">
+  <span>←</span> Back
+</button>
+  <form (ngSubmit)="submitBlog()" enctype="multipart/form-data">
+    <input
+      type="text"
+      placeholder="Blog Title"
+      [(ngModel)]="blog.title"
+      name="title"
+      required
+    />
+
+    <input
+      type="text"
+      placeholder="Author Name"
+      [(ngModel)]="blog.author"
+      name="author"
+      required
+    />
+
+    <textarea
+      placeholder="Blog Content"
+      [(ngModel)]="blog.content"
+      name="content"
+      rows="6"
+      required
+    ></textarea>
+
+    <input type="file" (change)="onFileSelected($event)" required />
+
+    <button type="submit">Publish Blog</button>
+  </form>
+
+  <hr />
+
+  <h2>All Blogs</h2>
+
+  <div class="blog-list">
+    <div class="blog-card" *ngFor="let b of blogs">
+      <img
+        *ngIf="b.coverImage"
+        [src]="'data:image/jpeg;base64,' + b.coverImage"
+        alt="Blog Image"
+      />
+
+      <h3>{{ b.title }}</h3>
+      <p class="author">By {{ b.author }}</p>
+
+      <p>{{ b.content | slice:0:120 }}...</p>
+
+      <button class="delete" (click)="deleteBlog(b.id)">Delete</button>
+    </div>
+  </div>
+</div>

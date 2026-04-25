@@ -1,0 +1,208 @@
+<section class="hero">
+  <div class="water-bg"></div>
+
+  <div class="hero-content">
+    <!-- Logo on left -->
+    <img src="assets/images/logo2.png" alt="Aquaindica Logo" class="hero-logo">
+
+    <div class="hero-text">
+      <h1> AQUAINDICA </h1>
+      <h2>TECHNO SOLUTIONS PRIVATE LIMITED</h2>
+      <p>   <br> Licensed Electrical Contractor, Consultant, Supplier, Importer and Exporter</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="why-us">
+  <h2>Why Choose Us</h2>
+
+  <div class="why-us-grid">
+    <div class="card">
+      <h3>Industry Expertise</h3>
+      <p>Deep experience in water infrastructure projects.</p>
+    </div>
+
+    <div class="card">
+      <h3>Sustainability</h3>
+      <p>Eco-friendly, future-ready water solutions.</p>
+    </div>
+
+    <div class="card">
+      <h3>Smart Technology</h3>
+      <p>Data-driven monitoring & optimization.</p>
+    </div>
+  </div>
+</section> -->
+
+<section class="why-us">
+  <h2>Why Choose Us</h2>
+  <div class="divider"></div>
+
+  <div class="why-grid">
+    <div class="why-card fade-in">
+      <span class="icon">🏗️</span>
+      <h3>Expertise</h3>
+      <p>Decades of experience in water and infrastructure engineering.</p>
+    </div>
+    <div class="why-card fade-in">
+      <span class="icon">💡</span>
+      <h3>Innovation</h3>
+      <p>Modern, sustainable and scalable technology-driven solutions.</p>
+    </div>
+    <div class="why-card fade-in">
+      <span class="icon">🤝</span>
+      <h3>Reliability</h3>
+      <p>Trusted long-term partner for operations & maintenance.</p>
+    </div>
+  </div>
+</section> 
+
+
+<section class="slider">
+  <!-- Water Canvas -->
+  <canvas id="waterCanvas"></canvas>
+
+  <div
+    class="slide"
+    *ngFor="let slide of slides; let i = index"
+    [class.active]="i === currentSlide"
+    [style.backgroundImage]="'url(' + slide.image + ')'"
+  >
+    <div class="overlay">
+      <h1>{{ slide.title }}</h1>
+      <p>{{ slide.subtitle }}</p>
+    </div>
+  </div>
+
+  <button class="nav prev" (click)="prevSlide()">‹</button>
+  <button class="nav next" (click)="nextSlide()">›</button>
+</section>
+
+
+
+<!-- About Section -->
+<section class="home-about">
+  <div class="about-container">
+    <h2>Who We Are</h2>
+    <div class="divider"></div>
+    <p>
+      Aquaindica Techno Solutions delivers people-centric, sustainable
+      infrastructure solutions using modern technologies. We specialize in
+      water, engineering, and operational excellence with a commitment to
+      quality, innovation, and long-term impact.
+    </p>
+  </div>
+</section>
+
+<section class="home-services">
+  <h2>Our Services</h2>
+  <div class="divider"></div>
+
+  <div class="services-grid">
+    <div
+      class="service-box"
+      *ngFor="let service of homeServices"
+      [routerLink]="['/services']"
+      [queryParams]="{ service: service.slug }"
+    >
+      <h3>{{ service.title }}</h3>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- Call to Action -->
+<section class="cta">
+  <div class="cta-content">
+    <h2>Looking for Reliable Engineering Solutions?</h2>
+    <p>Partner with us for innovative, sustainable, and high-quality engineering services that deliver results for your business.</p>
+    <a routerLink="/contact" class="cta-btn">
+      Contact Us
+    </a>
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- <section class="slider">
+  <div
+    class="slide"
+    *ngFor="let slide of slides; let i = index"
+    [class.active]="i === currentSlide"
+    [style.backgroundImage]="'url(' + slide.image + ')'"
+  >
+    <div class="overlay">
+      <h1>{{ slide.title }}</h1>
+      <p>{{ slide.subtitle }}</p>
+    </div>
+  </div>
+
+  <button class="nav prev" (click)="prevSlide()">‹</button>
+  <button class="nav next" (click)="nextSlide()">›</button>
+</section>
+
+<!-- About Preview -->
+<!-- <section class="home-about">
+  <div class="about-container">
+    <h2>Who We Are</h2>
+    <div class="divider"></div>
+    <p>
+      Aquaindica Techno Solutions delivers people-centric, sustainable
+      infrastructure solutions using modern technologies. We specialize in
+      water, engineering, and operational excellence with a commitment to
+      quality, innovation, and long-term impact.
+    </p>
+  </div>
+</section>
+
+
+<section class="why-us">
+  <h2>Why Choose Us</h2>
+  <div class="divider"></div>
+
+  <div class="why-grid">
+    <div class="why-card fade-in">
+      <span class="icon">🏗️</span>
+      <h3>Expertise</h3>
+      <p>Decades of experience in water and infrastructure engineering.</p>
+    </div>
+
+    <div class="why-card fade-in">
+      <span class="icon">💡</span>
+      <h3>Innovation</h3>
+      <p>Modern, sustainable and scalable technology-driven solutions.</p>
+    </div>
+
+    <div class="why-card fade-in">
+      <span class="icon">🤝</span>
+      <h3>Reliability</h3>
+      <p>Trusted long-term partner for operations & maintenance.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="services-preview">
+  <h2>Our Core Services</h2>
+  <div class="divider"></div>
+
+  <div class="preview-grid">
+    <div class="service-card fade-in">Operation & Maintenance</div>
+    <div class="service-card fade-in">Testing & Commissioning</div>
+    <div class="service-card fade-in">Engineering Design</div>
+  </div>
+</section>
+
+
+<section class="cta">
+  <h2>Looking for Reliable Engineering Solutions?</h2>
+  <a routerLink="/contact">Contact Us</a>
+</section> --> -->

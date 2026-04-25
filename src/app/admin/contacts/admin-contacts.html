@@ -1,0 +1,105 @@
+<div class="admin-contacts-container">
+ <h2>
+  {{ isArchiveView ? 'Archived Contacts' : 'All Contacts' }}
+  ({{ contacts.length }})
+</h2>
+
+  <!-- TOP ACTION BUTTONS -->
+  <div class="top-actions">
+    <button class="download-btn" (click)="downloadExcel()">
+      Download Excel
+    </button>
+
+    <button class="archive-view-btn" (click)="loadArchived()">
+      View Archived Contacts
+    </button>
+
+    <button class="active-view-btn" (click)="loadContacts()">
+      View Active Contacts
+    </button>
+  </div>
+
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Subject</th>
+        <th>Message</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+  <tbody>
+  <ng-container *ngFor="let c of contacts">
+
+    <!-- MAIN DATA ROW -->
+    <tr>
+      <td>{{ c.firstName }} {{ c.lastName }}</td>
+      <td>{{ c.email }}</td>
+      <td>{{ c.phone }}</td>
+      <td>{{ c.subject }}</td>
+      <td class="message-cell">{{ c.message }}</td>
+      <td>{{ c.createdAt | date:'dd-MM-yyyy hh:mm a' }}</td>
+
+      <td>
+        <button
+          class="reply-btn"
+          (click)="selectedEmail = c.email; selectedName = c.firstName + ' ' + c.lastName; replyMessage = ''">
+          Reply
+        </button>
+
+        <button
+          (click)="deleteContact(c.id)"
+          class="delete-btn">
+          Delete
+        </button>
+
+        <button
+          *ngIf="!c.archived"
+          class="archive-btn"
+          (click)="archiveContact(c.id)">
+          Archive
+        </button>
+
+        <button
+          *ngIf="c.archived"
+          class="archive-btn"
+          (click)="unarchiveContact(c.id)">
+          Unarchive
+        </button>
+      </td>
+    </tr>
+
+    <!-- FULL WIDTH REPLY ROW -->
+    <tr *ngIf="selectedEmail === c.email">
+      <td colspan="7">
+        <div class="reply-box">
+          <h3>Reply to {{ c.firstName }} {{ c.lastName }}</h3>
+
+          <textarea
+            [(ngModel)]="replyMessage"
+            placeholder="Enter your reply message">
+          </textarea>
+
+          <input
+            type="email"
+            [(ngModel)]="ccEmail"
+            placeholder="CC Email (optional)"
+            class="cc-input"
+          />
+
+          <div class="reply-actions">
+            <button class="reply-btn" (click)="sendReply()">Send Reply</button>
+            <button class="delete-btn" (click)="selectedEmail = ''">Cancel</button>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+  </ng-container>
+</tbody>
+  </table>
+</div>

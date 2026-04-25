@@ -1,0 +1,78 @@
+@media (max-width: 900px) {
+  .why-grid,
+  .preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-us h2,
+  .services-preview h2 {
+    font-size: 30px;
+  }
+
+  .why-card,
+  .service-card {
+    padding: 30px 20px;
+  }
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  padding: 12px 18px;
+  font-size: 18px;
+  background-color: #00b4d8;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  z-index: 999;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background-color: #0077a3;
+}/* Light mode colors */
+/* :root {
+  --bg-primary: #f6fbff;
+  --bg-secondary: #ffffff;
+  --bg-section: #f1f6f9;
+  --text-primary: #0a2540;
+  --text-secondary: #4a5a6a;
+  --text-accent: #0077a3;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.08);
+} */
+
+/* Dark mode colors */
+/* body.dark {
+  --bg-primary: #0a1a2a;
+  --bg-secondary: #1f2a3a;
+  --bg-section: #111827;
+  --text-primary: #e2e8f0;
+  --text-secondary: #cbd5e1;
+  --text-accent: #3b82f6;
+  --card-bg: rgba(20, 25, 35, 0.8);
+  --card-shadow: rgba(0, 0, 0, 0.2);
+} */
+
+.theme-toggle {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  border: none;
+  background: var(--card-bg);
+  color: var(--text-main);
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 999;
+  transition: all 0.3s ease;
+}

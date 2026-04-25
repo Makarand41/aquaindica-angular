@@ -1,0 +1,66 @@
+/* ===============================
+   ASSOCIATION SECTION
+================================ */
+
+.association-section {
+  padding: 80px 20px;
+  background: #f8fbff;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Title */
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #0a2a43;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 50px;
+}
+
+/* Grid Layout */
+.association-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+/* Cards */
+.association-card {
+  background: white;
+  padding: 25px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #0a2a43;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover Effect */
+.association-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  background: #eaf4ff;
+}
+
+
+.association-card {
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.association-card:hover {
+  transform: translateY(-5px);
+  background-color: #f4f8fb;
+}

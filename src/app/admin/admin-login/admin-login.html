@@ -1,0 +1,54 @@
+<div class="login-container">
+  <h2>Admin Login</h2>
+
+  <form>
+
+    <!-- USERNAME -->
+    <input
+      type="text"
+      placeholder="Username"
+      [(ngModel)]="username"
+      name="username"
+      required
+    />
+
+    <!-- PASSWORD -->
+    <input
+      type="password"
+      placeholder="Password"
+      [(ngModel)]="password"
+      name="password"
+      required
+    />
+
+    <!-- STEP 1: Send OTP -->
+    <button type="button" (click)="sendOtp()" [disabled]="loading || !username || !password">
+      {{ loading ? 'Sending OTP...' : 'Send OTP' }}
+    </button>
+
+    <!-- STEP 2: ENTER OTP -->
+    <input
+      type="text"
+      placeholder="Enter OTP"
+      [(ngModel)]="otp"
+      name="otp"
+    />
+
+    <!-- STEP 2: VERIFY OTP -->
+    <button type="button" (click)="verifyOtp()" [disabled]="!otp">
+      Verify OTP
+    </button>
+
+    <!-- STEP 3: LOG IN -->
+    <button type="button" (click)="finalLogin()" [disabled]="!otpVerified">
+      Log In
+    </button>
+
+    <!-- INFO TEXT -->
+    <p class="info-text">{{ infoMessage }}</p>
+
+  </form>
+
+  <!-- ERROR MESSAGE -->
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+</div>

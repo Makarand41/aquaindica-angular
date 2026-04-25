@@ -1,0 +1,232 @@
+/* ===============================
+   PAGE CONTAINER
+================================ */
+.admin-contacts-container {
+  padding: 40px;
+  background: linear-gradient(180deg, #f8fafc, #eef2f7);
+  min-height: 100vh;
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+}
+
+.admin-contacts-container h2 {
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+  letter-spacing: 0.5px;
+}
+
+/* ===============================
+   TABLE WRAPPER (Premium Card)
+================================ */
+.admin-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  transition: all 0.3s ease;
+}
+
+/* ===============================
+   TABLE HEADER
+================================ */
+.admin-table thead {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.admin-table thead th {
+  color: #f9fafb;
+  padding: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ===============================
+   TABLE BODY
+================================ */
+.admin-table tbody td {
+  padding: 16px;
+  font-size: 14px;
+  color: #374151;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.admin-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.admin-table tbody tr:hover {
+  background: #f8fafc;
+  transform: scale(1.002);
+}
+
+/* Zebra Soft */
+.admin-table tbody tr:nth-child(even) {
+  background: #fcfcfd;
+}
+
+/* Message column */
+.message-cell {
+  max-width: 320px;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+/* Action column center */
+.admin-table tbody td:last-child {
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ===============================
+   BUTTON BASE STYLE
+================================ */
+button {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* ===============================
+   REPLY BUTTON
+================================ */
+.reply-btn {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+}
+
+.reply-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+/* ===============================
+   DELETE BUTTON
+================================ */
+.delete-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  margin-left: 8px;
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.25);
+}
+
+.delete-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.35);
+}
+
+.delete-btn:active {
+  transform: scale(0.96);
+}
+
+/* ===============================
+   DOWNLOAD BUTTON
+================================ */
+.download-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.25);
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.35);
+}
+
+/* ===============================
+   REPLY BOX
+================================ */
+.reply-box {
+  margin-top: 30px;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+}
+
+.reply-box h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #1f2937;
+}
+
+.reply-box textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+  resize: none;
+  transition: 0.2s ease;
+}
+
+.reply-box textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+.archive-btn {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  margin-left: 8px;
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.25);
+}
+
+.archive-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35);
+}
+.archive-view-btn {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  color: white;
+  margin-left: 10px;
+}
+
+.active-view-btn {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  color: white;
+  margin-left: 10px;
+}
+
+/* Make reply row look clean */
+.admin-table tbody tr td[colspan] {
+  background: #f9fafb;
+  padding: 25px;
+}
+
+/* Large textarea */
+.reply-box textarea {
+  width: 100%;
+  min-height: 180px;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+  resize: vertical;
+  margin-bottom: 15px;
+}
+
+.cc-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  margin-bottom: 15px;
+}
+
+.reply-actions {
+  display: flex;
+  gap: 12px;
+}

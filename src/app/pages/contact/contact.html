@@ -1,0 +1,158 @@
+<section class="page-banner contact-banner">
+  <div class="banner-overlay">
+    <h1>Contact Us</h1>
+    <p>Let’s Build Sustainable Solutions Together</p>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+      <div class="divider left"></div>
+
+      <p><strong>📞 Phone</strong><br>
+        (+91) 9403212156, 9403691136
+      </p>
+
+      <p><strong>📧 Email</strong><br>
+         aquaindica.ts@gmail.com
+      </p>
+
+      <p><strong>📍 Address</strong><br>
+       Office:9, Second Floor, Mantra Essence Commercial Complex,<br>
+        Jagdamba Bhavan Road, Undri,<br>
+        Pune – 411060, Maharashtra, India
+      </p>
+    </div>
+
+    <div class="contact-form">
+      <h2>Send a Message</h2>
+      <div class="divider left"></div>
+
+      <!-- <form>
+        <input type="text" placeholder="First Name" required>
+        <input type="text" placeholder="Last Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Phone Number">
+        <input type="text" placeholder="Subject">
+        <textarea rows="5" placeholder="How can we help you?"></textarea>
+        <button type="submit">Submit</button>
+      </form> -->
+
+      <form (ngSubmit)="submitContact()" #contactForm="ngForm">
+
+  <input
+    type="text"
+    placeholder="First Name"
+    name="firstName"
+    [(ngModel)]="contactData.firstName"
+    required>
+
+  <input
+    type="text"
+    placeholder="Last Name"
+    name="lastName"
+    [(ngModel)]="contactData.lastName"
+    required>
+
+  <input
+    type="email"
+    placeholder="Email Address"
+    name="email"
+    [(ngModel)]="contactData.email"
+    required>
+
+  <div class="phone-group">
+
+  <select
+    name="countryCode"
+    [(ngModel)]="contactData.countryCode"
+    required>
+
+    <option *ngFor="let country of countries"
+            [value]="country.code">
+      {{ country.name }} ({{ country.code }})
+    </option>
+
+  </select>
+
+  <input
+    type="tel"
+    placeholder="Phone Number"
+    name="phone"
+    [(ngModel)]="contactData.phone"
+    required>
+
+</div>
+
+
+  <input
+    type="text"
+    placeholder="Subject"
+    name="subject"
+    [(ngModel)]="contactData.subject">
+
+  <textarea
+    rows="5"
+    placeholder="How can we help you?"
+    name="message"
+    [(ngModel)]="contactData.message">
+  </textarea>
+
+  <button type="submit" [disabled]="contactForm.invalid">
+    Submit
+  </button>
+</form>
+
+    </div>
+  </div>
+</section>
+<!-- Google Map -->
+<!-- <section class="map-section">
+  <iframe
+    src="https://www.google.com/maps?q= Office:9, Second Floor, Mantra Essence Commercial Complex,<br>
+        Jagdamba Bhavan Road, Undri,%20Pune%20411057&output=embed"
+    width="100%"
+    height="450"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</section> -->
+
+<!-- Google Map -->
+<section class="map-section">
+  <div class="map-wrapper">
+
+    <!-- Premium Logo Card -->
+    <div class="map-brand-card">
+      <img src="assets/images/logo.jpeg" alt="Aquaindica Logo">
+
+
+      <div class="brand-text">
+        <h4>Aquaindica Techno Solutions</h4>
+        <span>Sustainable Infrastructure Experts</span>
+
+        <a
+          href="https://maps.app.goo.gl/KuXix4DqzCftb9AeA"
+          target="_blank"
+          class="map-btn">
+          📍 View on Google Maps
+        </a>
+      </div>
+    </div>
+
+   
+
+    <iframe
+  title="Aquaindica Location Map"
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.8319257828052!2d73.90977687497372!3d18.445938832633164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2ea4a87d893fb%3A0x8d0f46ad5471b9cb!2sMantra%20Essence!5e0!3m2!1sen!2sin!4v1770043902434!5m2!1sen!2sin"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+  </div>
+</section>
+

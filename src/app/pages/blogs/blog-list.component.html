@@ -1,0 +1,20 @@
+<div class="blog-container" [ngClass]="{'single-blog': blogs.length === 1}">
+  <div
+    class="blog-card"
+    *ngFor="let blog of blogs"
+    (click)="openBlog(blog.id)"
+  >
+    <img
+      *ngIf="blog.coverImage"
+      [src]="'data:image/jpeg;base64,' + blog.coverImage"
+      alt="Blog Image"
+    />
+
+    <div class="content">
+      <h2>{{ blog.title }}</h2>
+      <p class="author">By {{ blog.author }}</p>
+      <p>{{ blog.content | slice:0:180 }}...</p>
+      <span class="read-more">Read More →</span>
+    </div>
+  </div>
+</div>
