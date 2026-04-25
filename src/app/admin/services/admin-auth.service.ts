@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AdminAuthService {
 
-  private API_URL = 'http://localhost:8080/api/admin';
+  // private API_URL = 'http://localhost:8081/api/admin';
 
+private API_URL = `${environment.apiUrl}/api/admin`;
   constructor(private http: HttpClient) {}
 
   // ✅ STEP 1: LOGIN

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
-
+import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-admin-blogs',
   standalone: true,
@@ -22,8 +22,8 @@ export class AdminBlogsComponent implements OnInit {
     author: ''
   };
 
-  private API_URL = 'http://localhost:8080/api/admin/blogs';
-
+  //private API_URL = 'http://localhost:8081/api/admin/blogs';
+private API_URL = `${environment.apiUrl}/api/admin/blogs`;
   constructor(private http: HttpClient, private location: Location) {}
 
   ngOnInit(): void {

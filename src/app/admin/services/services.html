@@ -80,11 +80,17 @@
         <span>{{ d.description }}</span>
 
         <!-- IMAGE -->
-        <img 
+         
+        <!-- <img 
           *ngIf="d.id"
-          [src]="'http://localhost:8080/api/admin/detail/image/' + d.id"
+          [src]="'http://localhost:8081/api/admin/detail/image/' + d.id"
           alt="detail image"
-        />
+        /> -->
+        <img 
+  *ngIf="d.id"
+  [src]="environment.apiUrl + '/api/admin/detail/image/' + d.id"
+  alt="detail image"
+/>
 
         <button (click)="deleteDetail(d.id)">Delete</button>
 

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-services',
@@ -34,7 +35,8 @@ export class ServicesComponent {
   loadServices() {
     this.isLoading = true;
 
-    this.http.get<any[]>('http://localhost:8080/api/services')
+    //this.http.get<any[]>('http://localhost:8081/api/services')
+    this.http.get<any[]>(`${environment.apiUrl}/api/services`)
       .subscribe({
         next: (res) => {
           this.services = res;
@@ -131,20 +133,20 @@ export class ServicesComponent {
 
 // getImage(id: number) {
 //   return this.http.get(
-//     `http://localhost:8080/api/admin/detail/image/${id}`,
+//     `http://localhost:8081/api/admin/detail/image/${id}`,
 //     { responseType: 'blob' }
 //   );
 // }
 
 // // loadServices() {
-// //   this.http.get<any[]>('http://localhost:8080/api/services')
+// //   this.http.get<any[]>('http://localhost:8081/api/services')
 // //     .subscribe(res => {
 // //       this.services = res;
 // //     });
 // // }
 
 // loadServices() {
-//   this.http.get<any[]>('http://localhost:8080/api/services')
+//   this.http.get<any[]>('http://localhost:8081/api/services')
 //     .subscribe(res => {
 //       this.services = res;
 

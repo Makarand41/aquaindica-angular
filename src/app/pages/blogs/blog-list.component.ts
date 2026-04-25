@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-blog-list',
@@ -13,8 +14,8 @@ import { HttpClient } from '@angular/common/http';
 export class BlogListComponent implements OnInit {
 
   blogs: any[] = [];
-  apiUrl = 'http://localhost:8080/api/admin/blogs/getBlogs';
-
+  // apiUrl = 'http://localhost:8081/api/admin/blogs/getBlogs';
+apiUrl = `${environment.apiUrl}/api/admin/blogs/getBlogs`;
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {

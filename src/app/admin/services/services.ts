@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-admin-services',
@@ -11,8 +12,9 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./services.css']
 })
 export class ServicesComponent {
-
-  baseUrl = 'http://localhost:8080/api/admin';
+ environment = environment; 
+  //baseUrl = 'http://localhost:8081/api/admin';
+  baseUrl = `${environment.apiUrl}/api/admin`;
 
   service = { title: '', description: '' };
   topic = { title: '' };
@@ -148,7 +150,8 @@ ngOnInit() {
 }
 
 loadServices() {
-  this.http.get<any[]>('http://localhost:8080/api/services')
+  // this.http.get<any[]>('http://localhost:8081/api/services')
+  this.http.get<any[]>(`${environment.apiUrl}/api/services`)
     .subscribe(res => {
       this.services = res;
 

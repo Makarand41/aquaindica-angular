@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-blog-detail',
@@ -13,7 +14,8 @@ import { HttpClient } from '@angular/common/http';
 export class BlogDetailComponent implements OnInit {
 
   blog: any;
-  apiUrl = 'http://localhost:8080/api/admin/blogs/getBlogs';
+  //apiUrl = 'http://localhost:8081/api/admin/blogs/getBlogs';
+  apiUrl = `${environment.apiUrl}/api/admin/blogs/getBlogs`;
 
   constructor(
     private route: ActivatedRoute,

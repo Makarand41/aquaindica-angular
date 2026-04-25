@@ -3,6 +3,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -61,7 +62,8 @@ export class Home implements OnInit, AfterViewInit {
   }
 
   loadServices() {
-    this.http.get<any[]>('http://localhost:8080/api/services')
+    //this.http.get<any[]>('http://localhost:8081/api/services')
+    this.http.get<any[]>(`${environment.apiUrl}/api/services`)
       .subscribe(res => {
         this.homeServices = res;
       });
@@ -181,7 +183,7 @@ export class Home implements OnInit, AfterViewInit {
 // }
 
 // loadServices() {
-//   this.http.get<any[]>('http://localhost:8080/api/services')
+//   this.http.get<any[]>('http://localhost:8081/api/services')
 //     .subscribe(res => {
 //       this.homeServices = res;
 //     });

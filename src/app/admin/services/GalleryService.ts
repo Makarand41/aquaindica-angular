@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class GalleryService {
 
-  private api = 'http://localhost:8080/api';
+  //private api = 'http://localhost:8081/api';
+  private api = `${environment.apiUrl}/api`;
 
   constructor(private http: HttpClient) {}
 

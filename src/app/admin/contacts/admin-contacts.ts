@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 import { interval, Subscription } from 'rxjs';
-
+import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-admin-contacts',
   standalone: true,
@@ -44,7 +44,8 @@ loading = true;
   loadContacts() {
     this.loading = true;
     this.isArchiveView = false;
-    this.http.get<any[]>('http://localhost:8080/api/contact/all')
+    //this.http.get<any[]>('http://localhost:8081/api/contact/all')
+    this.http.get<any[]>(`${environment.apiUrl}/api/contact/all`)
       .subscribe({
         next: (res) => {
           console.log('Contacts from API:', res);
@@ -65,7 +66,8 @@ sendReply() {
      cc: this.ccEmail 
   };
 
-  this.http.post('http://localhost:8080/api/admin/reply', body)
+  //this.http.post('http://localhost:8081/api/admin/reply', body)
+  this.http.post(`${environment.apiUrl}/api/admin/reply`, body)
     .subscribe({
       next: () => {
         alert("Email sent successfully");
@@ -78,7 +80,8 @@ sendReply() {
 }
 deleteContact(id: number) {
   if (confirm('Are you sure you want to delete this contact?')) {
-    this.http.delete(`http://localhost:8080/api/admin/delete/${id}`, {
+    //this.http.delete(`http://localhost:8081/api/admin/delete/${id}`, {
+this.http.delete(`${environment.apiUrl}/api/admin/delete/${id}`, {
       responseType: 'text'
     }).subscribe({
       next: (res) => {
@@ -101,7 +104,8 @@ archiveContact(id: number) {
 
     this.stopAutoRefresh(); // 🛑 stop refresh
 
-    this.http.put(`http://localhost:8080/api/contact/archive/${id}`, {})
+   // this.http.put(`http://localhost:8081/api/contact/archive/${id}`, {})
+   this.http.put(`${environment.apiUrl}/api/contact/archive/${id}`, {})
       .subscribe({
         next: () => {
           alert("Contact archived successfully");
@@ -127,7 +131,7 @@ startAutoRefresh() {
 }
 // archiveContact(id: number) {
 //   if (confirm('Archive this contact?')) {
-//     this.http.put(`http://localhost:8080/api/contact/archive/${id}`, {})
+//     this.http.put(`http://localhost:8081/api/contact/archive/${id}`, {})
 //       .subscribe({
 //         next: () => {
 //           // Remove archived contact from current list instantly
@@ -146,7 +150,8 @@ unarchiveContact(id: number) {
       this.stopAutoRefresh();
        this.loadContacts(); // reload fresh data
           this.startAutoRefresh(); // ▶️ restart refresh
-    this.http.put(`http://localhost:8080/api/contact/unarchive/${id}`, {})
+    // this.http.put(`http://localhost:8081/api/contact/unarchive/${id}`, {})
+    this.http.put(`${environment.apiUrl}/api/contact/unarchive/${id}`, {})
       .subscribe({
         next: () => {
           alert("Contact restored successfully");
@@ -166,7 +171,7 @@ unarchiveContact(id: number) {
 }
 // unarchiveContact(id: number) {
 //   if (confirm('Restore this contact?')) {
-//     this.http.put(`http://localhost:8080/api/contact/unarchive/${id}`, {})
+//     this.http.put(`http://localhost:8081/api/contact/unarchive/${id}`, {})
 //       .subscribe({
 //         next: () => {
 //           this.contacts = this.contacts.filter(c => c.id !== id);
@@ -181,7 +186,8 @@ unarchiveContact(id: number) {
 loadArchived() {
   this.loading = true;
    this.isArchiveView = true;
-  this.http.get<any[]>('http://localhost:8080/api/contact/archived')
+  //this.http.get<any[]>('http://localhost:8081/api/contact/archived')
+  this.http.get<any[]>(`${environment.apiUrl}/api/contact/archived`)
     .subscribe({
       next: (res) => {
         this.contacts = res;
