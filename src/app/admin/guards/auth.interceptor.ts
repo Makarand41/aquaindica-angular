@@ -14,40 +14,17 @@ export class AuthInterceptor implements HttpInterceptor {
 
     const token = localStorage.getItem('token');
 
-    // ❌ Do not attach token for login & verify-otp
+    let headers = req.headers.set('ngrok-skip-browser-warning', 'true');
+
     if (token && 
         !req.url.includes('/api/admin/login') &&
         !req.url.includes('/api/admin/verify-otp')) {
 
-      req = req.clone({
-        setHeaders: {
-          Authorization: `Bearer ${token}`
-        }
-      });
+      headers = headers.set('Authorization', `Bearer ${token}`);
     }
+
+    req = req.clone({ headers });
 
     return next.handle(req);
   }
 }
-
-// @Injectable()
-// export class AuthInterceptor implements HttpInterceptor {
-
-//   intercept(
-//     req: HttpRequest<any>,
-//     next: HttpHandler
-//   ): Observable<HttpEvent<any>> {
-
-//     const token = localStorage.getItem('token');
-
-//     if (token) {
-//       req = req.clone({
-//         setHeaders: {
-//           Authorization: `Bearer ${token}`
-//         }
-//       });
-//     }
-
-//     return next.handle(req);
-//   }
-// }
