@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
 import { environment } from '../../../environments/environment';
+
 @Component({
   selector: 'app-admin-blogs',
   standalone: true,
@@ -22,8 +23,8 @@ export class AdminBlogsComponent implements OnInit {
     author: ''
   };
 
-  //private API_URL = 'http://localhost:8081/api/admin/blogs';
-private API_URL = `${environment.apiUrl}/api/admin/blogs`;
+  private API_URL = `${environment.apiUrl}/api/admin/blogs`;
+
   constructor(private http: HttpClient, private location: Location) {}
 
   ngOnInit(): void {
@@ -31,10 +32,16 @@ private API_URL = `${environment.apiUrl}/api/admin/blogs`;
   }
 
   onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0];
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFile = file;
+      console.log('File selected:', this.selectedFile.name);
+    }
   }
 
   submitBlog() {
+    console.log('Selected file:', this.selectedFile);
+
     if (!this.selectedFile) {
       alert('Please select an image');
       return;
@@ -58,11 +65,13 @@ private API_URL = `${environment.apiUrl}/api/admin/blogs`;
       }
     });
   }
+
   back() {
-    this.location.back();  // ✅ goes to previous page
+    this.location.back();
   }
+
   getAllBlogs() {
-   this.http.get<any[]>(this.API_URL + '/getBlogs').subscribe(data => {
+    this.http.get<any[]>(this.API_URL + '/getBlogs').subscribe(data => {
       this.blogs = data;
     });
   }
